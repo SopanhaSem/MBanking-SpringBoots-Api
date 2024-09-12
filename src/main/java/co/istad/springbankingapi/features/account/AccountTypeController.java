@@ -2,6 +2,7 @@ package co.istad.springbankingapi.features.account;
 
 import co.istad.springbankingapi.features.account.dto.AccountTypeResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import java.util.List;
 public class AccountTypeController {
 
     private final AccountTypeService accountTypeService;
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     @GetMapping
     List<AccountTypeResponse> findAll(){
         return accountTypeService.findAll();

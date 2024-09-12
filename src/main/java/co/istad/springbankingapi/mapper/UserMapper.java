@@ -1,6 +1,7 @@
     package co.istad.springbankingapi.mapper;
 
     import co.istad.springbankingapi.domain.User;
+    import co.istad.springbankingapi.features.auth.dto.RegisterRequest;
     import co.istad.springbankingapi.features.user.dto.CreateUserRequest;
     import co.istad.springbankingapi.features.user.dto.UserResponse;
     import org.mapstruct.Mapper;
@@ -15,4 +16,5 @@
         List<UserResponse> toUserResponseMapper(List<User> users);
 
         UserResponse toUserResponse(User user);
+        User fromRegisterRequest(RegisterRequest registerRequest);
     }
